@@ -1,13 +1,17 @@
 <?php 
 require_once "functions.php";
-$dsn = "mysql:host=localhost;port=3306;user=root;password=;dbname=blog_ipb24;charset=utf8mb4";
-$pdo = new PDO($dsn);
-var_dump($pdo);
-$statement = $pdo->prepare("SELECT * FROM posts");
-$statement->execute();
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+require_once "Database.php";
+$config = require "config.php";
+
+$db = new Database($config["database"]);
+echo "<h1>"."Emuārs"."</h1>";
+echo "<form>";
+echo "<input name='search_query' />";
+echo "<button>Meklēt</button>";
+echo "</form>";
+$posts = $db->query("SELECT * FROM posts");
 echo "<ul>";
-foreach($posts as $post) {
-        echo "<li>" .$post["content"] . "</li>";
+    foreach($posts as $post) {
+        echo "<li>" . $post["content"] . "</li>";
     }
 echo "</ul>";
