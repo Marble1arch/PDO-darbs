@@ -10,7 +10,7 @@
 </ul>
     <h1>Emuārs</h1>
     <form>
-        <input name='search_query' />
+        <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>' />
         <button>Meklēt</button>
     </form>
     <?php if(count($posts)==0) { ?>
