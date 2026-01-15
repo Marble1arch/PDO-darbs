@@ -1,9 +1,5 @@
 <?php 
-require_once "functions.php";
-require_once "Database.php";
-$config = require "config.php";
-
-$db = new Database($config["database"]);
+$pageTitle = "Emuārs - Kategorijas";
     $sql_query = "SELECT * FROM categories";
     $params =[];
 $sql_query = "SELECT * FROM categories";

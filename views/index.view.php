@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Emuārs</title>
-</head>
-<body>
-</ul>
+<?php require "components/header.php";?>
+<?php require "components/navbar.php";?>
     <h1>Emuārs</h1>
     <form>
         <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>' />
@@ -22,5 +14,4 @@
        <?php } ?>
     </ul>
         <?php } ?>
-</body>
-</html>
+<?php require "components/footer.php";?>
