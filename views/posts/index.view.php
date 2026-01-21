@@ -1,5 +1,5 @@
-<?php require "components/header.php";?>
-<?php require "components/navbar.php";?>
+<?php require "./views/components/header.php";?>
+<?php require "./views/components/navbar.php";?>
     <h1>Emuārs</h1>
     <form>
         <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>' />
@@ -10,8 +10,8 @@
     <?php } else {?>
     <ul>
        <?php foreach($posts as $post) { ?>
-            <li><?= $post["content"]?></li>
+            <li><a href="show?id=<?= $post["id"] ?>"><?= htmlspecialchars($post["content"])?></a></li>
        <?php } ?>
     </ul>
         <?php } ?>
-<?php require "components/footer.php";?>
+<?php require "./views/components/footer.php";?>
