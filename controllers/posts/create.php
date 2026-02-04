@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db->query($sql, $params);
     header("Location: /");
     exit();
-        header("Location: /");
     }
 }
 require "views/posts/create.view.php";
