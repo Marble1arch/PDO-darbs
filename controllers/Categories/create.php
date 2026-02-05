@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         VALUES(:name)";
     $params = ["name" => $_POST["category_name"],];
     $db->query($sql, $params);
-    header("Location: /");
+    header("Location: /-cat");
     exit();
     }
 }
-require "views/cateogries/create.view.php";
+require "views/categories/create.view.php";

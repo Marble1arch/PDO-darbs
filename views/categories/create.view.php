@@ -1,12 +1,12 @@
 <?php require "./views/components/header.php";?>
 <?php require "./views/components/navbar.php";?>
-    <h1>Izveidot bloga ierakstu</h1>
+    <h1>Izveidot kategoriju ierakstu</h1>
     <form method="POST">
 
-    <label>Bloga raksts<input name="content" value ='<?= $_POST['content'] ?? "" ?>'/></label><br/>
+    <label>Izveido kategoriju<input name="category_name" value ='<?= $_POST['category_name'] ?? "" ?>'/></label><br/>
 
-    <?php if(isset($errors["content"])){?>
-     <p><?=$errors["content"]?></p>
+    <?php if(isset($errors["category_name"])){?>
+     <p><?=$errors["category_name"]?></p>
     <?php } ?></br>
 
     <button>Izveidot</button>

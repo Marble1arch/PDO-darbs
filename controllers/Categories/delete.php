@@ -4,5 +4,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $params = ["id" => $_POST["id"],];
     $db->query($sql,$params);
 }
-header("Location: /");
+header("Location: /-cat");
 exit();

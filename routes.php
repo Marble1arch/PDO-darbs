@@ -11,7 +11,7 @@ return [
 
     "/-cat" => "controllers/Categories/index.php",
     "/show" => "controllers/Categories/show.php",
-    "/create" => "controllers/Categories/create.php",
+    "/create-cat" => "controllers/Categories/create.php",
     "/edit" => "controllers/Categories/edit.php",
     "/delete" => "controllers/Categories/delete.php"
 ];
