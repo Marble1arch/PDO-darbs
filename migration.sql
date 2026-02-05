@@ -3,15 +3,15 @@ USE blog_ipb24;
 
 CREATE TABLE posts(
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-content VARCHAR(5200) NOT NULL
+content VARCHAR(5200) NOT NULL,
+category_id INT
 );
 
 INSERT INTO posts
-(content)
+(content,category_id)
 VALUES
-("Lieldienas nāk"),
-("Otrais bloga ieraksts");
-
+("Lieldienas nāk",1),
+("Otrais bloga ieraksts",2);
 CREATE TABLE categories(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 category_name VARCHAR(25) NOT NULL
@@ -22,3 +22,7 @@ VALUES
 ("Svētki"),
 ("Mūzika"),
 ("Sports");
+SELECT posts.*,categories.category_name FROM posts
+LEFT JOIN categories
+ON posts.category_id = categories.id
+WHERE posts.id = 1;
