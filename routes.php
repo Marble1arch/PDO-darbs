@@ -10,7 +10,7 @@ return [
 
 
     "/-cat" => "controllers/Categories/index.php",
-    "/show" => "controllers/Categories/show.php",
+    "/show-cat" => "controllers/Categories/show.php",
     "/create-cat" => "controllers/Categories/create.php",
     "/edit" => "controllers/Categories/edit.php",
     "/delete" => "controllers/Categories/delete.php"
