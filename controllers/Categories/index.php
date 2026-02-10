@@ -1,7 +1,7 @@
 <?php 
-
 $sql_query="SELECT * FROM categories";
 $params =[];
+
 if(isset($_GET["search_query"]) && trim($_GET["search_query"]) != ""){
     $sql_query .= " WHERE category_name LIKE :search";
     $params["search"] = "%".$_GET["search_query"]. "%";

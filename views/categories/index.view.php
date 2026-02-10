@@ -1,8 +1,13 @@
+<?php session_start();?>
 <?php require "views/components/header.php";?>
 <?php require "views/components/navbar.php";?>
 <h1>Emuārs</h1>
     <form>
             <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>' />
+                <?php if(isset($_SESSION["delete"])){?>
+                    <p><?=$_SESSION["delete"]?></p>
+                <?php } 
+                session_destroy();?>
             <button>Meklēt</button>
     </form>
         <?php if(count($categories)==0) { ?>
