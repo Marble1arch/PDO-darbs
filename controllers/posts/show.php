@@ -10,6 +10,12 @@ WHERE posts.id = :id";
 $params = ["id" => $_GET["id"]];
 $post = $db->query($sql,$params)->fetch(); 
 
+$sql = "SELECT comments.autors, comments.datums, comments.coment, posts.id
+FROM comments 
+LEFT JOIN posts ON comments.comnt_id = posts.id 
+WHERE comments.comnt_id = :id";
+$params = ["id" => $_GET["id"]];
+$comment = $db->query($sql,$params)->fetch(); 
 if(!$post){
     redirectIfNotFound();
 }
