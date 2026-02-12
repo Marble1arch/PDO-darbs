@@ -17,5 +17,6 @@ return [
 
     "/create-com" => "controllers/Comments/create.php",
     "/edit-com" => "controllers/Comments/edit.php",
-    "/delete-com" => "controllers/Comments/delete.php"
+    "/delete-com" => "controllers/Comments/delete.php",
+    "/show-com" => "controllers/comments/show.php",
 ];
