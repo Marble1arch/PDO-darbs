@@ -35,5 +35,5 @@ autors VARCHAR(255) NOT NULL,
 datums DATETIME,
 coment VARCHAR(5200) NOT NULL, 
 comnt_id INT,
-FOREIGN KEY (comnt_id) REFERENCES posts(id)
+FOREIGN KEY (comnt_id) REFERENCES posts(id) ON DELETE CASCADE
 );
