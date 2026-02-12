@@ -3,7 +3,7 @@
     <h1>Emuārs</h1>
     <form>
         <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>' />
-        <button>Meklēt</button>
+        <button>Meklēt123468</button>
     </form>
     <?php if(count($posts)==0) { ?>
         <p>❌ Nav atrasts neviens ieraksts. 😭 Lūdzu, pamēģini citu vārdu vai frāzi 🐣</p>
