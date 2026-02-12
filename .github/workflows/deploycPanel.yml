@@ -1,30 +1,51 @@
 name: Publish the Website to cPanel
+
 on:
   push:
     branches:
       - master
+
 jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4.1.1
-      - name: Use Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Build Project
-        run: |
-          npm install
-          npm run build
-      - name: FTP-Deploy-Action
+      - name: Checkout code
+        uses: actions/checkout@v4   # you can also keep @v4.1.1 if you prefer
+
+      - name: Deploy to FTP / cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server:   ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+
+          # Upload the whole project root
           local-dir: ./
+
+          # Very common cPanel locations — choose ONE (uncomment the one you need)
+          # server-dir: ./                  # → goes to the FTP account root
+          # server-dir: ./public_html/      # ← most common default for main domain
+          # server-dir: ./www/              # sometimes used
+          # server-dir: ./public/           # rare, but possible
+
+          # Good exclusions for PHP projects (prevents uploading junk)
           exclude: |
-            .git/**
-            .git*
-            **/.git/**
+            **/.git*
+            **/.git*/**
+            .github/**
+            .gitignore
+            **/node_modules/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/*.log
+            **/migration.sql          # ← you probably don't want this on production
+            text.txt                  # ← looks like test file
+            # add more if needed, e.g.:
+            # controllersPanel.yml
+            # **/tests/
+            # **/cache/
+
+          # Optional but often useful:
+          # protocol: ftps            # use if your host requires FTPS (secure)
+          # dry-run: true             # ← test first — set to true, see what would be uploaded, no actual changes
