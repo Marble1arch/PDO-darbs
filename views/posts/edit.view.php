@@ -3,7 +3,7 @@
     <h1>Rediģēt <?= $post["content"] ?></h1>
     <form method="POST">
 
-    <label>Bloga rakstsrtd123
+    <label>Bloga raksts
     <input name="content" value ='<?=  htmlspecialchars($_POST['content'] ?? $post['content'])?>'/>
     <input name="id" value = <?= htmlspecialchars($post["id"]) ?> type = "hidden"/>
     </label>

@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4   # you can also keep @v4.1.1 if you prefer
+        uses: actions/checkout@v4  
 
       - name: Deploy to FTP / cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -20,16 +20,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
 
-          # Upload the whole project root
           local-dir: ./
-
-          # Very common cPanel locations — choose ONE (uncomment the one you need)
-          # server-dir: ./                  # → goes to the FTP account root
-          # server-dir: ./public_html/      # ← most common default for main domain
-          # server-dir: ./www/              # sometimes used
-          # server-dir: ./public/           # rare, but possible
-
-          # Good exclusions for PHP projects (prevents uploading junk)
           exclude: |
             **/.git*
             **/.git*/**
@@ -45,7 +36,3 @@ jobs:
             # controllersPanel.yml
             # **/tests/
             # **/cache/
-
-          # Optional but often useful:
-          # protocol: ftps            # use if your host requires FTPS (secure)
-          # dry-run: true             # ← test first — set to true, see what would be uploaded, no actual changes
